@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+    php:
+        container_name: 'php'
+        build: './docker/php'
+        ports:
+            - '80:8080'
+        volumes:
+            - './:/var/www/MusicCheckPrototype'
+            - './docker/php/config/php.ini:/usr/local/etc/php/conf.d/100-php.ini'
+        working_dir: '/var/www/MusicCheckPrototype'
