@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+    php:
+        container_name: 'php'
+        build: './docker/php'
+        volumes:
+            - './:/var/www/MusicCheckPrototype'
+            - './docker/php/config/php.ini:/usr/local/etc/php/conf.d/100-php.ini'
+            - './docker/php/config/php-fpm.conf:/etc/php-fpm.conf'
+        working_dir: '/var/www/MusicCheckPrototype'
+
+    nginx:
+        container_name: 'nginx'
+        build: './docker/nginx'
+        volumes:
+            - './:/var/www/MusicCheckPrototype'
+            - './docker/nginx/config/nginx.conf:/etc/nginx/conf.d/100-nginx.conf'
+            - './docker/nginx/log:/var/log/nginx'
+        ports:
+            - '80:80'
+        working_dir: '/var/www/MusicCheckPrototype'
+        depends_on:
+            - 'php'
