@@ -1,6 +1,12 @@
 {
+    "name": "ktomaszewski/music-check-prototype",
+    "description": "Music check prototype",
+    "authors": [{
+        "name": "Kamil Tomaszews",
+        "email": "tomaszewski.kamil.97@gmail.com"
+    }],
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": "^7.2.5",
         "ext-ctype": "*",
