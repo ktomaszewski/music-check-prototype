@@ -14,6 +14,6 @@ final class HomeController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return new Response('Hello World!');
+        return $this->render('home/home.html.twig');
     }
 }
