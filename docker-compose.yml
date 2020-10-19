@@ -9,6 +9,8 @@ services:
             - './docker/php/config/php.ini:/usr/local/etc/php/conf.d/100-php.ini'
             - './docker/php/config/php-fpm.conf:/etc/php-fpm.conf'
         working_dir: '/var/www/MusicCheckPrototype'
+        networks:
+            - 'network'
 
     nginx:
         container_name: 'nginx'
@@ -22,6 +24,8 @@ services:
         working_dir: '/var/www/MusicCheckPrototype'
         depends_on:
             - 'php'
+        networks:
+            - 'network'
 
     postgresql:
         container_name: 'postgresql'
@@ -33,3 +37,8 @@ services:
         environment:
             POSTGRES_USER: 'root'
             POSTGRES_PASSWORD: 'root'
+        networks:
+            - 'network'
+
+networks:
+    network:
