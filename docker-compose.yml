@@ -22,3 +22,14 @@ services:
         working_dir: '/var/www/MusicCheckPrototype'
         depends_on:
             - 'php'
+
+    postgresql:
+        container_name: 'postgresql'
+        build: './docker/postgresql'
+        volumes:
+            - './docker/postgresql/data:/var/lib/postgresql/data'
+        ports:
+            - '5432:5432'
+        environment:
+            POSTGRES_USER: 'root'
+            POSTGRES_PASSWORD: 'root'
